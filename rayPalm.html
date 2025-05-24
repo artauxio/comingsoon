@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ray Palms - Coming Soon</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background: linear-gradient(to bottom right, #67e8f9, #a7f3d0, #d9f99d);
+    }
+    .animate-text {
+      animation: float 3s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+  </style>
+</head>
+<body class="flex flex-col items-center justify-center min-h-screen text-gray-800 text-center px-4">
+  <!-- Logo Image -->
+  <div class="mb-6 animate-text">
+    <img src="assets/svs-elevate-llp-logo.png" alt="SVS Elevate LLP Logo" class="h-[130px] w-auto hover:scale-105 transition-transform duration-500" />
+  </div>
+
+  <h1 class="text-6xl sm:text-8xl font-bold mb-4 animate-text">Ray Palms</h1>
+  <h2 class="text-3xl sm:text-5xl font-semibold mb-8 animate-text">Coming Soon...</h2>
+
+  <form id="newsletter-form" class="flex items-center space-x-2 fade-in-delay-2 mb-6">
+    <input id="email" type="email" placeholder="Email Address" required class="w-72 px-4 py-2 rounded-full text-black focus:outline-none shadow-md transition-transform focus:scale-105" />
+    <button type="submit" class="w-36 flex items-center justify-center px-6 py-2 bg-black text-white font-semibold rounded-full hover:bg-white hover:text-black transition shadow-md hover:scale-105 relative">
+      <span class="button-text">Sign Up</span>
+      <svg class="loader animate-spin h-5 w-5 absolute hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"></path>
+      </svg>
+    </button>
+  </form>
+
+  <p class="text-lg font-medium">For Enquiries Call ‪+91 98677 15855‬</p>
+
+  <!-- Popup -->
+  <div id="popup" class="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center hidden">
+    <div class="bg-white p-6 rounded-lg shadow-lg text-xl font-semibold">
+      Thanks for signing up!
+    </div>
+  </div>
+
+  <script>
+    const form = document.querySelector('#newsletter-form');
+    const emailInput = document.querySelector('#email');
+    const popup = document.querySelector('#popup');
+    const loader = document.querySelector('.loader');
+    const buttonText = document.querySelector('.button-text');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const email = emailInput.value;
+      if (!email) return alert('Please enter a valid email.');
+
+      // Show loader
+      loader.classList.remove('hidden');
+      buttonText.classList.add('invisible');
+
+      try {
+        await fetch('https://script.google.com/macros/s/AKfycbwwmT-zRO7eJInJhCZrXliNZv-8V4Oh3BJWgD1D_w7ivyV1jbnHjZOfmcawIJGe0OiO/exec', {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          },
+          body: `email=${encodeURIComponent(email)}`
+        });
+
+        emailInput.value = '';
+        popup.classList.remove('hidden');
+        setTimeout(() => popup.classList.add('hidden'), 3000);
+
+      } catch (error) {
+        alert('Something went wrong. Try again later.');
+      } finally {
+        loader.classList.add('hidden');
+        buttonText.classList.remove('invisible');
+      }
+    });
+  </script>
+</body>
+</html>
