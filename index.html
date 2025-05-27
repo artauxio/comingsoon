@@ -2,49 +2,90 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Coming Soon</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ray Palms - Coming Soon</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body {
- background: linear-gradient(90deg, #d2ffea, #efffd2);
-        }
-
+       
+    
         .animate-text {
+            animation: glow 2s ease-in-out infinite alternate;
             animation: float 3s ease-in-out infinite;
         }
 
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+            }
+
+            to {
+                text-shadow: 0 0 30px rgba(255, 255, 255, 0.8), 0 0 40px rgba(255, 255, 255, 0.6);
+            }
+        }
         @keyframes float {
+
+0%,
+100% {
+    transform: translateY(0);
+}
+
+50% {
+    transform: translateY(-10px);
+}
+}
+
+        .animate-pulse {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+
+        @keyframes pulse {
 
             0%,
             100% {
-                transform: translateY(0);
+                opacity: 1;
+                transform: scale(1);
             }
 
             50% {
-                transform: translateY(-10px);
+                opacity: 0.7;
+                transform: scale(1.05);
             }
         }
+        @font-face {
+      font-family: 'Octopus Game';
+      src: url('Octopus Game.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    .font-octopus {
+      font-family: 'Octopus Game', sans-serif;
+    }
     </style>
 </head>
 
 <body class="min-h-screen flex flex-col items-center bg-gray-100 p-2 sm:p-4 lg:p-6">
     <img src="assets/svs-elevate-llp-logo.png" alt="SVS Elevate LLP Logo"
-        class="h-[100px] sm:h-[100px] md:h-[100px] lg:h-[115px] xl:h-[130px] 2xl:h-[150px] w-auto hover:scale-105 transition-transform duration-500 mt-4 mb-4" />
-
+        class="h-[80px] sm:h-[0px] md:h-[100px] lg:h-[115px] xl:h-[130px] 2xl:h-[150px] w-auto hover:scale-105 transition-transform duration-500 mt-4 mb-4" />
     <div class="w-full max-w-xs sm:max-w-lg md:max-w-2xl lg:max-w-4xl xl:max-w-5xl 2xl:max-w-6xl mx-auto p-4 sm:p-8 md:p-12 lg:p-16 xl:p-20 2xl:p-24 rounded-xl shadow-xl mt-4"
-        style="background: linear-gradient(45deg, #0D7038 30%, #A6CE39 110%)">
+        style="background: linear-gradient(70deg, #0D7038 30%, #A6CE39 110%)">
         <div class="text-center text-white space-y-4 sm:space-y-6 md:space-y-8">
-
+            <div class="flex flex-col justify-start">
+                <p class="text-base sm:text-xl md:text-2xl lg:text-3xl 2xl:text-4xl text-center whitespace-nowrap">
+                    Residential and Commercial Project            </p>
+            </div>
+            <h3 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl 2xl:text-7xl font-bold animate-pulse">Coming Soon
+            </h3>
             <h1
-                class="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-bold mb-4 sm:mb-6 md:mb-8 animate-text">
+                class="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-bold font-octopus sm:mb-6 md:mb-8 animate-text">
                 Ray Palms</h1>
-            <h3 class="text-xl sm:text-2xl md:text-3xl lg:text-4xl 2xl:text-5xl font-bold animate-pulse">Coming Soon To
-                Palghar West</h3>
-            <p class="text-base sm:text-lg md:text-xl lg:text-2xl 2xl:text-3xl">
-                Claim your spot—be first to access sales
-            </p>
+            <h3 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl 2xl:text-7xl font-bold animate-pulse">In Palghar
+                West</h3>
+                <p class="text-sm sm:text-base md:text-xl lg:text-2xl 2xl:text-3xl">
+                    Register&nbsp;now&nbsp;for&nbsp;exclusive&nbsp;pre-launch&nbsp;access
+                </p>
+                  
 
             <form id="emailForm" onsubmit="handleSubmit(event)"
                 class="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 md:gap-6 max-w-2xl mx-auto">
@@ -52,26 +93,16 @@
                     class="px-4 sm:px-6 md:px-8 py-3 sm:py-4 rounded-full text-center sm:text-center text-black w-full sm:flex-1 text-sm sm:text-base md:text-lg focus:outline-none min-w-0" />
                 <button type="submit"
                     class="w-full sm:w-auto flex items-center justify-center px-6 sm:px-8 md:px-14 py-3 sm:py-4 bg-black text-white font-semibold rounded-full hover:bg-white hover:text-black transition shadow-md hover:scale-105 relative text-sm sm:text-base whitespace-nowrap">
-                    <span class="button-text text-sm:text-2xl md:text-2xl ">I Am Interested</span>
-                    <svg class="loader animate-spin h-5 w-5 absolute hidden" xmlns="http://www.w3.org/2000/svg"
-                        fill="none" viewBox="0 0 24 24">
-                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4">
-                        </circle>
-                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"></path>
-                    </svg>
+                    <span class="button-text text-sm sm:text-base md:text-lg">I am Interested</span>
+                
                 </button>
             </form>
-           <p class="text-sm sm:text-lg md:text-xl lg:text-2xl 2xl:text-3xl font-medium text-center text-white whitespace-nowrap">
-    For Enquiries Call: ‪+91 98677 15855‬</p>
-        </div>
-    </div>
+            <p class="text-sm sm:text-lg md:text-xl lg:text-2xl 2xl:text-3xl font-medium text-center text-white">
+                For Enquiries Call: ‪+91 98677 15855‬
+            </p>
 
-    <!-- Popup -->
-    <div id="popup"
-        class="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center hidden z-50">
-        <div
-            class="bg-white p-4 sm:p-6 rounded-lg shadow-lg text-lg sm:text-xl font-semibold mx-4 max-w-sm w-full text-center">
-            Thanks for signing up!
+        
+            </div>
         </div>
     </div>
 
